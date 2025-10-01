@@ -24,11 +24,13 @@ public class SpawnObs : MonoBehaviour
     private void Spawn()
     {
         _index = Random.Range(0, _obsPrefab.Length);
+
         Vector3 randomPosition = new Vector3(
         Random.Range(_minPosition.x, _maxPosition.x),
         _obsPrefab[_index].transform.position.y,
         Random.Range(_minPosition.z, _maxPosition.z)
         );
+
         _instance = Instantiate(_obsPrefab[_index], randomPosition, Quaternion.identity);
 
         _instance.GetComponent<Obstacle>().Init(this);
